@@ -107,14 +107,7 @@ const startMusic = async () => {
   } catch (error) {
     console.error("Error fetching or playing music:", error);
   }
-
-  const playNextTrack = async () => {
-      let nextTrackIndex = (tracks.findIndex(t => t.File === page.player.src) + 1) % tracks.length;
-      page.player.src = files.musicfiles+tracks[nextTrackIndex].File;
-      trackPrep(tracks[nextTrackIndex]);
-      page.player.play();
-  };
-  page.player.addEventListener('ended', playNextTrack);
+  page.player.addEventListener('ended', startMusic);
 };
 
 page.join.addEventListener('click', joinHandler);
