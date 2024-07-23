@@ -1,12 +1,12 @@
 // Alea Copywrite Dominik Honzak 7/23/2024
-const fileStorage = "https://dapchat.github.io/AleaFiles/";
+const fileStorage = "https://dahonzak.github.io/AleaFiles/";
 const files = {
   music:fileStorage+"music.json",
   musicfiles:fileStorage+"music/",
   images:fileStorage+"images/"
 };
 const alea = {
-  default: "https://dapchat.github.io/AleaFiles/alea/Alea.png"
+  default: fileStorage+"alea/Alea.png"
 };
 const page = {
   join:document.getElementById("joinButton"),
