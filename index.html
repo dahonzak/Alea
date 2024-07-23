@@ -1,0 +1,32 @@
+<!-- Alea Copywrite Dominik Honzak 7/23/2024 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title id='title'>Alea</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel='icon' href='https://dapchat.github.io/AleaFiles/alea/icon.png'>
+</head>
+<body>
+  <div id='bg'></div>
+   <div id='center'>
+  <h1>Alea</h1>
+  <div id='card'>
+    <h2 id='Music'>Radio Music</h2>
+    <div id='Artist'>Player</div>
+  </div>
+  <button id="joinButton"><i class="fa fa-play"></i></button>
+  </div>
+  <div id='listen'></div>
+  <div id='audioControl'>
+     <h1>Volume</h1>
+    <input type="range" min="0" max="100" value="100" id="slide" onchange='volume();'>
+  </div>
+  <div id='audio' onclick='openVolume();'><i class="fa fa-volume-up"></i></div>
+  <div id='copywrite'>© Copywrite Dominik Honzak 2024</div>
+  <audio id="player" src=""></audio>
+  <script src="script.js"></script>
+</body>
+</html>

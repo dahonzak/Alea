@@ -1,0 +1,160 @@
+/* Alea Copywrite Dominik Honzak 7/23/2024 */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Rozha+One&display=swap');
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+  font-weight: normal;
+}
+body {
+  font-family: "Lato",sans-serif;
+  margin:0;
+  scroll-behavior: smooth;
+  background-color:black;
+}
+audio {
+  display:none;
+}
+#bg {
+   background:url('https://dapchat.github.io/AleaFiles/alea/Alea.png') fixed no-repeat center center;
+  background-size:cover;
+  z-index:-1;
+  position:absolute;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100vw;
+  overflow:hidden;
+  text-align: center;
+  filter:blur(15px) grayscale(100%);
+  transition:0.2s linear;
+}
+#card {
+  background:white;
+  padding:20px;
+  text-align:center;
+  color:black;
+    border-radius:15px;
+
+}
+h1 {
+  color:white;
+  font-family:"Rozha One",serif;
+}
+#card h2 {
+  font-size:40px;
+  font-family:"Rozha One",serif;
+  margin:0px 10px;
+}
+#card div {
+  font-size:20px;
+}
+#center {
+  text-align:center;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:5;
+}
+#joinButton {
+  border-radius:100%;
+  font-size: 25px;
+  background:white;
+  border:none;
+  color:black;
+  cursor:pointer;
+  box-shadow:0px 0px 10px 1px white;
+  /* font-weight:250; */
+  height:75px;
+  width:75px;
+  line-height:75px;
+  text-align:center;
+  margin-top:50px;
+  transition:0.2s linear;
+  z-index:101;
+}
+#joinButton:hover {
+  box-shadow:0px 0px 25px 1px white;
+}
+#copywrite {
+  position:fixed;
+  bottom:0;
+  left:0;
+  color:white;
+  margin:10px;
+}
+#listen {
+  position:fixed;
+  top:0;
+  left:0;
+  color:white;
+  margin:15px;
+  font-size:20px;
+}
+#audio {
+  position:fixed;
+  top:0;
+  right:0;
+  color:white;
+  margin:10px;
+  font-size:25px;
+  transition:0.2s linear;
+  border-radius:5px;
+  cursor:pointer;
+  padding:5px 10px;
+}
+#audio:hover {
+  background-color:rgba(0,0,0,0.3);
+}
+#audioControl {
+  display:none;
+  text-align:center;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:5;
+}
+#audioControl h1 {
+  font-size:45px;
+  margin-bottom:50px;
+}
+#slide {
+  -webkit-appearance: none;  
+  appearance: none;
+  width: 50vw; 
+  height: 2px; 
+  background-color:white; 
+  padding:0px 0px 0px 0px;
+  outline: none; 
+  opacity: 0.7; 
+  /* backdrop-filter: blur(10px); */
+  -webkit-transition: .3s; 
+  transition: opacity .3s linear;
+  transition:0.3s linear;
+}
+
+#slide:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+#slide:active {
+  cursor:grab;
+}
+input[type="range"]::-webkit-slider-thumb {
+   -webkit-appearance: none; /* Override default look */
+   appearance: none;
+   background-color: #ffffff;
+   height: 2rem;
+   width: 2rem;    
+  border-radius:100%;
+  box-shadow:0px 0px 10px 1px white;
+}
+input[type="range"]::-moz-range-thumb {
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0; /*Removes default border-radius that FF applies*/
+    background-color: #ffffff;
+    height: 2rem;
+    width: 2rem;
+  border-radius:100%;
+  box-shadow:0px 0px 10px 1px white;
+}
