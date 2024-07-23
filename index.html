@@ -6,14 +6,14 @@
   <title id='title'>Alea</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
   <link rel='icon' href='https://dahonzak.github.io/AleaFiles/alea/icon.png'>
   <meta name="google-site-verification" content="jd3ydL8eOn__ZNI7blTVkEaDsqllxdKRLuz42Y2-47E" />
 </head>
 <body>
   <div id='bg'></div>
    <div id='center'>
-  <h1>Alea</h1>
+  <h1 class="glow">Alea</h1>
   <div id='card'>
     <h2 id='Music'>Radio Music</h2>
     <div id='Artist'>Player</div>
@@ -26,7 +26,7 @@
     <input type="range" min="0" max="100" value="100" id="slide" onchange='volume();'>
   </div>
   <div id='audio' onclick='openVolume();'><i class="fa fa-volume-up"></i></div>
-  <div id='copywrite'>© Copywrite Dominik Honzak 2024</div>
+  <div id='copywrite'>Alea © Copywrite Dominik Honzak 2024</div>
   <audio id="player" src=""></audio>
   <script src="script.js"></script>
 </body>

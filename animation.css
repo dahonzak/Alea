@@ -1,0 +1,6 @@
+.glow {
+  background: -webkit-linear-gradient(40deg,rgb(12, 201, 157), #2063e8, #ed3be4);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-size:100%;
+  animation: rankerSteaming 15s linear infinite;
+}
+
+@keyframes rankerSteaming { 0%{ text-shadow:0px 0px 5px red; } 20% { text-shadow:0px 0px 5px orange; } 40%{ text-shadow:0px 0px 5px lime; } 60% { text-shadow:0px 0px 5px #57b6ff; } 80% { text-shadow:0px 0px 5px #ff00dd; } 100%{ text-shadow:0px 0px 5px red; } }
