@@ -5,12 +5,17 @@ const files = {
   musicfiles:fileStorage+"music/",
   images:fileStorage+"images/"
 };
+const youtube = {
+  s:"https://youtube.com/embed/",
+  e:"?controls=0&autoplay=1&loop=0",
+};
 const alea = {
   default: fileStorage+"alea/Alea.png"
 };
 const page = {
   join:document.getElementById("joinButton"),
   player:document.getElementById("player"),
+  yplayer:document.getElementById("youtubePlayer"),
   center:document.getElementById("center"),
   audio:document.getElementById("audio"),
   audioControl:document.getElementById("audioControl"),
@@ -20,7 +25,8 @@ const page = {
   artistName:document.getElementById("Artist"),
   musicName:document.getElementById("Music"),
   volopen:false,
-  started:false
+  started:false,
+  typeplaying:"mp3"
 };
 
 const volume = () => {
@@ -47,6 +53,8 @@ const trackPrep = (track) => {
   if (track.Image) {
     image = files.images+track.Image;
   }
+  page.yplayer.style.display = "none";
+  page.bg.style.display = "block";
   page.bg.style.background = "url('"+image+"') fixed no-repeat center center";
   page.bg.style.backgroundSize = "cover";
   page.bg.style.filter = "blur(15px)";
@@ -55,7 +63,21 @@ const trackPrep = (track) => {
   page.musicName.innerHTML = track.Name;
   page.title.innerHTML = "Alea | "+track.Name+" - "+track.Artist;
 };
+const youtubePrep = (track,st) => {
+  page.yplayer.style.display = "block";
+  page.yplayer.src = youtube.s+track.File+youtube.e+"&start="+st;
+  page.bg.style.display = "none";
+  page.join.innerHTML = '<i class="fa fa-pause"></i>';
+  page.artistName.innerHTML = track.Artist;
+  page.musicName.innerHTML = track.Name;
+  page.title.innerHTML = "Alea | "+track.Name+" - "+track.Artist;
+};
 const joinHandler = () => {
+  if (!(localStorage.getItem('Volume') === null)) {
+    let vol = parseInt(localStorage.getItem('Volume'));
+    page.vol.value = vol;
+    volume();
+  }
   if (page.started) {
     pauseMusic();
   }
@@ -67,15 +89,15 @@ const joinHandler = () => {
 const pauseMusic = () => {
   bg.style.filter = "blur(15px) grayscale(100%)";
   joinButton.innerHTML = '<i class="fa fa-play"></i>';
-  player.pause();
+  if (page.typeplaying == "mp3") {
+    page.player.pause();
+  }
+  if (page.typeplaying == "youtube") {
+    page.yplayer.src="";
+  }
   page.started = false;
 };
 const startMusic = async () => {
-  if (!(localStorage.getItem('Volume') === null)) {
-    let vol = parseInt(localStorage.getItem('Volume'));
-    page.vol.value = vol;
-    volume();
-  }
   const playlistResponse = await fetch(files.music);
   const playlistData = await playlistResponse.json();
   const tracks = playlistData.Music;
@@ -95,10 +117,17 @@ const startMusic = async () => {
 
         if (currentPlaylistPosition + trackDuration > effectiveTime) {
             const trackStartTime = effectiveTime - currentPlaylistPosition;
-            page.player.src = files.musicfiles + track.File;
-            page.player.currentTime = trackStartTime;
-            trackPrep(track);
-            page.player.play();
+            page.typeplaying = track.Type;
+            if (track.Type == "youtube") {
+                youtubePrep(track,trackStartTime);
+                setTimeout(startMusic,trackDuration*1000);
+            }
+            else {
+              page.player.src = files.musicfiles + track.File;
+              page.player.currentTime = trackStartTime;
+              trackPrep(track);
+              page.player.play();
+            }
             break;
         } else {
             currentPlaylistPosition += trackDuration;
