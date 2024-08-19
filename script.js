@@ -120,7 +120,7 @@ const startMusic = async () => {
             page.typeplaying = track.Type;
             if (track.Type == "youtube") {
                 youtubePrep(track,trackStartTime);
-                setTimeout(startMusic,trackDuration*1000);
+                setTimeout(startMusic, (trackDuration - trackStartTime)*1000);
             }
             else {
               page.player.src = files.musicfiles + track.File;
