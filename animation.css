@@ -1,3 +1,4 @@
+/* Copyright */
 .glow {
   background: -webkit-linear-gradient(40deg,rgb(12, 201, 157), #2063e8, #ed3be4);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-size:100%;
   animation: rankerSteaming 15s linear infinite;

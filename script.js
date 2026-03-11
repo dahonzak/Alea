@@ -1,4 +1,4 @@
-// Alea Copywrite Dominik Honzak 7/23/2024
+// Alea Copyright Dominik Honzak 7/23/2024
 const fileStorage = "https://dahonzak.github.io/AleaFiles/";
 const files = {
   music:fileStorage+"music.json",
